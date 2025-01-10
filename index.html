@@ -1,0 +1,58 @@
+<html>
+	<head>
+		<title>Birthday Party</title>
+	<style>
+		*{
+			background-color:lightyellow;
+			font-size:50px;
+			font-family:cambria;
+		}
+		.btn{
+			margin-right:10%;
+			width:20%
+			}
+	</style>
+	</head>
+	<body>
+	<center>
+		<h1>Birthday invite app</h1>
+		<form onsubmit="show()">
+			<input type="submit" value="Add" class="btn" />
+			<input type="submit" value="Remove" class="btn" />
+			<input type="submit" value="Show" class="btn" />
+		</form>
+		<h2 id="msg"/>
+		<script>
+			let friends=["kamble","patil"];
+			function show(){
+				event.preventDefault();
+				let msg=document.getElementById("msg");
+				let action=document.activeElement.value;
+			
+				if(action==="Add"){
+					let f=prompt("enter the name");
+					if(f!==""){
+						friends.push(f);
+					}	
+				}
+				else if(action==="Remove"){
+					let f=prompt("enter the name");
+					if(f!==""){
+						let pos=friends.indexOf(f);
+						if(pos===-1){
+							alert("name not found");
+						}
+						else{
+							friends.splice(pos,1);
+						}
+					}
+				}
+				else{
+					msg.innerHTML=friends;
+
+
+				}
+				}
+		</script>
+	</body>
+</html>
